@@ -1,7 +1,7 @@
 [package]
 name = "eframe_template"
 version = "0.1.0"
-authors = ["Emil Ernerfeldt <emil.ernerfeldt@gmail.com>"]
+authors = ["Alexander Öberg"]
 edition = "2021"
 rust-version = "1.56"
 
@@ -16,8 +16,7 @@ eframe = "0.16.0" # Gives us egui, epi and web+native backends
 serde = { version = "1", features = ["derive"], optional = true }
 
 [features]
-default = []
-persistence = ["eframe/persistence", "serde"] # Enable if you want to persist app state on shutdown
+default = ["eframe/persistence", "serde"]
 
 [profile.release]
 opt-level = 2 # fast and small wasm
