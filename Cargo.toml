@@ -1,9 +1,8 @@
 [package]
-name = "eframe_template"
+name = "assist_tool"
 version = "0.1.0"
 authors = ["Alexander Öberg"]
 edition = "2021"
-rust-version = "1.56"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -12,8 +11,11 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 eframe = "0.16.0" # Gives us egui, epi and web+native backends
-
 serde = { version = "1", features = ["derive"], optional = true }
+scrap = "0.5.0"
+rayon = "1.5.1"
+[build-dependencies]
+image = "0.23.14"
 
 [features]
 default = ["eframe/persistence", "serde"]
@@ -21,10 +23,3 @@ default = ["eframe/persistence", "serde"]
 [profile.release]
 opt-level = 2 # fast and small wasm
 
-[patch.crates-io]
-
-# If you want to use the bleeding edge version of `egui`:
-# eframe = { git = "https://github.com/emilk/egui", branch = "master" }
-
-# If you fork https://github.com/emilk/egui you can test with:
-# eframe = { path = "../egui/eframe" }
